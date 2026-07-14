@@ -12,8 +12,11 @@ user_ID = input('Roblox\'s user ID?\nType the user ID... ');
 
 #################### GET PROXIES ####################
 ## Proxies File ##
-proxiesFile = open('proxies.txt', 'r');
-proxies = [p for p in proxiesFile.read().split('\n') if p.strip() != ''];
+try:
+  proxiesFile = open('proxies.txt', 'r');
+  proxies = [p for p in proxiesFile.read().split('\n') if p.strip() != ''];
+except FileNotFoundError:
+  proxies = [];
 
 #################### CHECKS ####################
 if len(proxies) == 0:
